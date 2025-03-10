@@ -1,0 +1,75 @@
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
+public class miniGames {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Main Menu");
+        frame.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.insets = new Insets(10, 10, 10, 10); 
+        gbc.anchor = GridBagConstraints.CENTER;  
+        JButton button1 = new JButton("Chess");
+        JButton button2 = new JButton("Rock Paper Scissors");
+        JButton button3 = new JButton("MineSweeper");
+        JButton button4 = new JButton("TicTacToe");
+        JButton button5 = new JButton("Close");
+        Dimension buttonSize = new Dimension(200, 50); 
+        button1.setPreferredSize(buttonSize);
+        button2.setPreferredSize(buttonSize);
+        button3.setPreferredSize(buttonSize);
+        button4.setPreferredSize(buttonSize);
+        button5.setPreferredSize(buttonSize);
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                open("Chess");
+            }
+        });
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                 open("RockPaperScissors");
+            }
+        });
+        button3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                 open("MineSweeper");
+            }
+        });
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                open("TicTacToe");
+            }
+        });
+        button5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        gbc.gridy = 0;
+        frame.add(button1, gbc);
+        gbc.gridy = 1;
+        frame.add(button2, gbc);
+        gbc.gridy = 2;
+        frame.add(button3, gbc);
+        gbc.gridy = 3;
+        frame.add(button4, gbc);
+        gbc.gridy = 4;
+        frame.add(button5, gbc);
+        frame.setSize(500, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+    private static void open(String game){
+
+    JFrame gameFrame = new JFrame(game);
+    gameFrame.setSize(400, 300);
+    gameFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    JLabel label = new JLabel(game, SwingConstants.CENTER);
+    label.setFont(new Font("Arial", Font.PLAIN, 20));
+    gameFrame.add(label);
+    gameFrame.setLocationRelativeTo(null);
+    gameFrame.setVisible(true);
+
+    }
+}
